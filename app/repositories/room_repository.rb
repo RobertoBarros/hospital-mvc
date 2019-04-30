@@ -1,6 +1,8 @@
 require_relative '../models/room'
 
 class RoomRepository
+  CSV_OPTIONS = {headers: :first_row, header_converters: :symbol}
+
   def initialize(csv_file)
     @csv_file = csv_file
     @rooms = []
@@ -17,14 +19,17 @@ class RoomRepository
   end
 
   def load_csv
-    CSV.foreach(@csv_file) do |row|
-      room = Room.new(number: row[0].to_i, capacity: row[1].to_i)
+    CSV.foreach(@csv_file, CSV_OPTIONS) do |row|
+      room = Room.new(number: row[:number].to_i, capacity: row[:capacity].to_i)
       @rooms << room
     end
   end
 
   def save_csv
-    CSV.open(@csv_file, 'wb') do |file|
+    CSV.open(@csv_file, 'wb', CSV_OPTIONS) do |file|
+
+      file << %i[number capacity] # CSV HEADER
+
       @rooms.each do |room|
         file << [room.number, room.capacity]
       end
