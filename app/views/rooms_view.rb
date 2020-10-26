@@ -1,23 +1,23 @@
 class RoomsView
   def ask_number
-    puts "Enter the room number:"
-    return gets.chomp.to_i
+    puts 'Enter the room number:'
+    gets.chomp.to_i
   end
 
   def ask_capacity
-    puts "Enter the room capacity:"
-    return gets.chomp.to_i
+    puts 'Enter the room capacity:'
+    gets.chomp.to_i
   end
 
   def list(rooms)
-    system "clear"
-    puts ("-" * 15) + 'Rooms List' + ("-" * 15)
+    system 'clear' # This don't work in rake specs
+    puts 'Rooms List'
     rooms.each do |room|
       puts "Room Number #{room.number}: #{room.capacity} patients capacity"
     end
-    puts ('-' * 30)
+    puts '-' * 30
     puts "\n\n"
     puts 'Press enter to continue...'
-    gets
+    gets  # This don't work in rake specs
   end
 end

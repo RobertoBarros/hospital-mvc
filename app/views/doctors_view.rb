@@ -1,20 +1,18 @@
 class DoctorsView
   def ask_name
-    puts "Enter doctor name:"
-    return gets.chomp.strip
+    puts 'Enter doctor name:'
+    gets.chomp.strip
   end
 
   def list(doctors)
-    system "clear"
-    puts ("-" * 15) + 'Doctors List' + ("-" * 15)
+    system 'clear'  # This don't work in rake specs
+    puts 'Doctors List'
     doctors.each do |doctor|
       puts "Doctor: #{doctor.name}"
     end
-    puts ('-' * 30)
+    puts '-' * 30
     puts "\n\n"
     puts 'Press enter to continue...'
-    gets
+    gets  # This don't work in rake specs
   end
-
-
 end
