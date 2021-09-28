@@ -6,7 +6,7 @@ class RoomRepository
   def initialize(csv_file)
     @csv_file = csv_file
     @rooms = []
-    load_csv
+    load_csv if File.exist?(@csv_file)
   end
 
   def add(room)
