@@ -1,7 +1,6 @@
 require_relative '../models/doctor'
 
 class DoctorRepository
-  CSV_OPTIONS = {headers: :first_row, header_converters: :symbol}
 
   def initialize(csv_file)
     @csv_file = csv_file
@@ -19,14 +18,14 @@ class DoctorRepository
   end
 
   def load_csv
-    CSV.foreach(@csv_file, CSV_OPTIONS) do |row|
+    CSV.foreach(@csv_file, headers: :first_row, header_converters: :symbol) do |row|
       doctor = Doctor.new(name: row[:name])
       @doctors << doctor
     end
   end
 
   def save_csv
-    CSV.open(@csv_file, 'wb', CSV_OPTIONS) do |file|
+    CSV.open(@csv_file, 'wb', headers: :first_row, header_converters: :symbol) do |file|
 
       file << %i[name] # CSV HEADER
 
