@@ -5,14 +5,16 @@ class DoctorsView
   end
 
   def list(doctors)
-    system 'clear'  # This don't work in rake specs
-    puts 'Doctors List'
-    doctors.each do |doctor|
-      puts "Doctor: #{doctor.name}"
-    end
+    puts "\n" * 4 # 4 blank lines
     puts '-' * 30
-    puts "\n\n"
-    puts 'Press enter to continue...'
-    gets  # This don't work in rake specs
+    puts 'Doctors List'
+    puts '-' * 30
+
+    doctors.each_with_index do |doctor, index|
+      puts "#{index + 1} - #{doctor.name}"
+    end
+
+    puts '-' * 30
+    puts "\n" * 4 # 4 blank lines
   end
 end

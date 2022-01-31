@@ -19,7 +19,6 @@ class Router
   private
 
   def print_actions
-    system "clear"
     puts ("-" * 10) + 'Patients' + ('-' * 10)
     puts "1. Create Patient"
     puts "2. List Patients"

@@ -10,14 +10,14 @@ class PatientsView
   end
 
   def list(patients)
-    system 'clear' # This don't work in rake specs
+    puts "\n" * 4 # 4 blank lines
+    puts '-' * 30
     puts 'Patients List'
-    patients.each do |patient|
-      puts "Name: #{patient.name} | #{patient.age} years"
+    puts '-' * 30
+    patients.each_with_index do |patient, index|
+      puts "#{index + 1} - Name: #{patient.name} | #{patient.age} years"
     end
     puts '-' * 30
-    puts "\n\n"
-    puts 'Press enter to continue...'
-    gets  # This don't work in rake specs
+    puts "\n" * 4 # 4 blank lines
   end
 end

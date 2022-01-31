@@ -10,14 +10,14 @@ class RoomsView
   end
 
   def list(rooms)
-    system 'clear' # This don't work in rake specs
+    puts "\n" * 4 # 4 blank lines
+    puts '-' * 30
     puts 'Rooms List'
-    rooms.each do |room|
-      puts "Room Number #{room.number}: #{room.capacity} patients capacity"
+    puts '-' * 30
+    rooms.each_with_index do |room, index|
+      puts "#{index + 1} - Room Number #{room.number}: #{room.capacity} patients capacity"
     end
     puts '-' * 30
-    puts "\n\n"
-    puts 'Press enter to continue...'
-    gets  # This don't work in rake specs
+    puts "\n" * 4 # 4 blank lines
   end
 end
