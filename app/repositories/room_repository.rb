@@ -1,7 +1,6 @@
 require_relative '../models/room'
 
 class RoomRepository
-
   def initialize(csv_file)
     @csv_file = csv_file
     @rooms = []
@@ -26,7 +25,6 @@ class RoomRepository
 
   def save_csv
     CSV.open(@csv_file, 'wb', headers: :first_row, header_converters: :symbol) do |file|
-
       file << %i[number capacity] # CSV HEADER
 
       @rooms.each do |room|
@@ -34,5 +32,4 @@ class RoomRepository
       end
     end
   end
-
 end

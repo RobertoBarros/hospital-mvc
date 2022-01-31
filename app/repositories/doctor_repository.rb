@@ -1,7 +1,6 @@
 require_relative '../models/doctor'
 
 class DoctorRepository
-
   def initialize(csv_file)
     @csv_file = csv_file
     @doctors = []
@@ -14,7 +13,7 @@ class DoctorRepository
   end
 
   def all
-    return @doctors
+    @doctors
   end
 
   def load_csv
@@ -34,6 +33,4 @@ class DoctorRepository
       end
     end
   end
-
-
 end

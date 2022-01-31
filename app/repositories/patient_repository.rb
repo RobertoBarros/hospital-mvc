@@ -1,7 +1,6 @@
 require_relative '../models/patient'
 
 class PatientRepository
-
   def initialize(csv_file)
     @csv_file = csv_file
     @patients = []
@@ -26,13 +25,10 @@ class PatientRepository
 
   def save_csv
     CSV.open(@csv_file, 'wb', headers: :first_row, header_converters: :symbol) do |file|
-
       file << %i[name age] # CSV HEADER
-
       @patients.each do |patient|
         file << [patient.name, patient.age]
       end
     end
   end
-
 end
