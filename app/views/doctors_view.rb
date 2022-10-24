@@ -5,8 +5,6 @@ class DoctorsView
   end
 
   def list(doctors)
-    puts "\n" * 4 # 4 blank lines
-    puts '-' * 30
     puts 'Doctors List'
     puts '-' * 30
 
@@ -15,6 +13,5 @@ class DoctorsView
     end
 
     puts '-' * 30
-    puts "\n" * 4 # 4 blank lines
   end
 end

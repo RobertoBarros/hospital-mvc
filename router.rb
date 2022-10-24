@@ -11,6 +11,7 @@ class Router
     loop do
       print_actions
       action = gets.chomp.to_i
+      print `clear`
       dispatch(action)
     end
   end
